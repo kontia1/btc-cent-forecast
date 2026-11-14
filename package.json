@@ -1,5 +1,6 @@
 {
   "name": "btc-cent-forecast",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "engines": { "node": ">=22" }
 }

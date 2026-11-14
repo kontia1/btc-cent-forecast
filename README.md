@@ -1,9 +1,5 @@
-# btc-cent-forecast
-
-A one-minute BTC close series is given and the entry must name the close 240 minutes later.
-The house baseline is persistence; this entry reads every case file, keeps the last close on the
-price grid, and writes one forecast per case. Node 22, standard library only, offline.
-
-    mkdir -p out && MAKEFUN_INPUT_DIR=input MAKEFUN_OUTPUT_DIR=out node main.ts
-
-SPDX-License-Identifier: MIT
+BTC-cent forecast entry: it predicts the BTC price 240 minutes (one 4-hour bar) ahead from a market's historical price closes.
+Method: persistence, where the last observed close is the point forecast, clamped to the open (0, 10000000) price grid with five decimals.
+Each case file is read from MAKEFUN_INPUT_DIR (default /input) and written as <id>.out under MAKEFUN_OUTPUT_DIR (default /output).
+Run it with: node main.ts — Node 22 executes TypeScript directly, so there is no build step and no dependencies.
+Standard library only and fully deterministic.
